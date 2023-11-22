@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "esbuild --bundle src/main.jsx --outfile=main.js --servedir=./ --watch",
+    "build": "esbuild --bundle src/main.jsx --outfile=main.js"
+  },
+  "description": "",
+  "dependencies": {
+    "esbuild": "^0.19.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
