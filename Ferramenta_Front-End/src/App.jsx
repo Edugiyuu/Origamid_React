@@ -29,13 +29,13 @@ const mario = {
 
 const App = () => {
 
-const dados = luana.compras.map((objeto) => Number(objeto.preco)).reduce((valorA,valorB) => valorA + valorB)
+const dados = luana.compras.map((objeto) => Number(objeto.preco.replace("R$",""))).reduce((valorA,valorB) => valorA + valorB)
 console.log(dados);
 
   return <div>
     <p>Nome: {luana.cliente}</p>
     <p>Idade: {luana.idade}</p>
-    <p>Situação: <span>{luana.ativa ? 'ativa' : 'false'}</span></p>
+    <p>Situação: <span style={{color: dados.ativa ? 'red' : 'green'}}>{luana.ativa ? 'ativa' : 'false'}</span></p>
     <p>Total gasto: {dados}</p>
   </div>;
 };
