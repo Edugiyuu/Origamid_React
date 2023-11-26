@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React para Iniciantes</title>
+
+    <!-- Carrega o React, React Dom e Babel -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- babel converte jsx em js -->
+  </head>
+
+  <body>
+    <div id="app">App</div>
+        <script type="text/babel">
+
+// Os links abaixo puxam dados de um produto em formato JSON
+// https://ranekapi.origamid.dev/json/api/produto/tablet
+// https://ranekapi.origamid.dev/json/api/produto/smartphone
+// https://ranekapi.origamid.dev/json/api/produto/notebook
+// Crie uma interface com 3 botões, um para cada produto.
+// Ao clicar no botão faça um fetch a api e mostre os dados do produto na tela.
+// Mostre apenas um produto por vez
+// Mostre a mensagem carregando... enquanto o fetch é realizado
+
+
+            const Buttons = () => {
+                return (
+                  <div>
+                    <button>Notebook</button>
+                    <button>Smartphone</button>
+                    <button>Tablet</button>
+                  </div>
+                  
+                  )
+            };
+
+
+            const App = () => {
+                return (
+                    <div>
+                    <Buttons />
+                    </div>
+                 );
+            };
+
+      ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+  </body>
+</html>
