@@ -1,37 +1,29 @@
 import React from 'react';
-import Modal from './Modal';
-import ButtonModal from './ButtonModal';
-
-/* const App = () => {
-  const [modal, setModal] = React.useState(false);
-
-  return (
-    <div>
-      <Modal modal={modal} setModal={setModal} />
-      <ButtonModal setModal={setModal} />
-    </div>
-  );
-}; */
-
-//mudando o estado
-let ativo = true;
-function Teste(){
- if (ativo === true) {
-  ativo = false
- }else{
-  ativo = true
- }
- console.log(ativo);
-}
+import Produto from './Produto';
 
 const App = () => {
-  
-  //o ternario não muda porque o react não vai renderizar-lo novamente porque uma variavel mudou..
-  //pra isso que existem os hooks
+  const [dados, setDados] = React.useState(null);
+  const [carregando, setCarregando] = React.useState(null);
+
+  async function handleClick(event) {
+    setCarregando(true);
+    const response = await fetch(
+      `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`,
+    );
+    const json = await response.json();
+    setDados(json);
+    setCarregando(false);
+  }
+
   return (
-    <button onClick={Teste}>{ativo ? 'Botão Ativo' : 'Botão Inativo'}</button>
+    <>
+      <button onClick={handleClick}>smartphone</button>
+      <button onClick={handleClick}>tablet</button>
+      <button onClick={handleClick}>notebook</button>
+      {carregando && <p>Carregando...</p>}
+      {!carregando && dados && <Produto dados={dados} />}
+    </>
   );
 };
-
 
 export default App;
