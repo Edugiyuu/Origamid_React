@@ -11,7 +11,8 @@ const App = () => {
       .then((response) => response.json())
       .then((json) => setDados(json));
   }, []);
-
+  // ^ é uma array de dependencia, se algo mudar dentro do que você colocar nesse array, o useEffect executa
+  // se o array ser vazio quer dizer q ele não tem dependencia nenhuma, então só é executada uma vez
   return (
     <div>
       {dados && (
