@@ -1,13 +1,24 @@
 import React from 'react'
 import styles from './Contato.module.css'
+import foto from '../img/contato.jpg'
 
 const Contato = () => {
 
 
   return (
-    <div>
-        <h1>Contato</h1>
-    </div>
+    <section className={styles.contato}>
+      <img src={foto} alt="" />
+
+      <div>
+         <h1>Entre em contato</h1>
+         <ul>
+          <li>
+            edupaz@gmail.com
+          </li>
+         </ul>
+      </div>
+       
+    </section>
   )
 }
 

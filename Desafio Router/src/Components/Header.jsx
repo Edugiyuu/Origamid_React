@@ -9,7 +9,7 @@ export const Header = () => {
     <nav className={styles.header}>
         <ul>
             <li>
-                <NavLink className={styles.link} to='/'>Produtos</NavLink>
+                <NavLink className={styles.link} to='/' end>Produtos</NavLink>
             </li>
             <li>
                 <NavLink className={styles.link} to='contato'>Contato</NavLink>
